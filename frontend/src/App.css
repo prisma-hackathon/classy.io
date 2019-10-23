@@ -1,0 +1,45 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+.table {
+  border: 1px solid #ccc;
+}
+
+.table-header,
+.table-row {
+  display: flex;
+}
+
+.table-header > div,
+.table-row > div {
+  border-right: 1px solid #ccc;
+  padding: 5px;
+  width: 150px;
+}
+
+.table-row > div > a {
+  color: blue;
+}
+
+.upload-button {
+}

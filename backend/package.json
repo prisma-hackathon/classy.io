@@ -14,7 +14,7 @@
   },
   "scripts": {
     "dev": "ts-node src/index.ts",
-    "dev-watch": "ts-node-dev src/index.ts",
+    "dev-watch": "ts-node-dev src/index.ts --tree-kill",
     "watch": "tsc -w",
     "build": "tsc",
     "start": "node dist/index.js",
