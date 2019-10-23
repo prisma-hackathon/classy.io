@@ -13,10 +13,8 @@ async function invokeLambda(functionName: string, payload: any) {
   await Lambda.invoke(req).promise()
 }
 
-async function callWorker(classificationJobId: number) {
+export async function callWorker(classificationJobId: number) {
   await invokeLambda('classy-worker-dev-classify', {
     classificationJobId,
   })
 }
-
-callWorker(100)
