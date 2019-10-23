@@ -4,8 +4,8 @@ datasource db {
 }
 
 generator photon {
-  provider  = "photonjs"
-  platforms = ["linux-glibc-libssl1.0.2", "native"]
+  provider      = "photonjs"
+  binaryTargets = ["linux-glibc-libssl1.0.2", "native"]
 }
 
 
