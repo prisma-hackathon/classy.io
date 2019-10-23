@@ -1,0 +1,32 @@
+datasource db {
+  provider = "mysql"
+  url = "***"
+}
+
+generator photon {
+  provider  = "photonjs"
+  platforms = ["linux-glibc-libssl1.0.2", "native"]
+}
+
+
+model ClassificationJob {
+  id          Int                    @id
+  zipUrl      String                 @unique
+  signedUrl   String                 @unique
+  zipUploaded Boolean                @default(false)
+  results     ClassificationResult[]
+}
+
+model Algorithm {
+  id   Int    @id
+  name String
+  link String
+}
+
+model ClassificationResult {
+  id            Int       @id
+  algorithm     Algorithm
+  accuracy      Float
+  inferenceTime Float
+  trainingTime  Float
+}

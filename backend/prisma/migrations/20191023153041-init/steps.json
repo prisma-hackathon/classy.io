@@ -1,0 +1,209 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "stepType": "CreateModel",
+      "name": "ClassificationJob",
+      "embedded": false
+    },
+    {
+      "stepType": "CreateModel",
+      "name": "Algorithm",
+      "embedded": false
+    },
+    {
+      "stepType": "CreateModel",
+      "name": "ClassificationResult",
+      "embedded": false
+    },
+    {
+      "stepType": "CreateField",
+      "model": "ClassificationJob",
+      "name": "id",
+      "type": {
+        "Base": "Int"
+      },
+      "arity": "required",
+      "isUnique": false,
+      "id": {
+        "strategy": "Auto",
+        "sequence": null
+      }
+    },
+    {
+      "stepType": "CreateField",
+      "model": "ClassificationJob",
+      "name": "zipUrl",
+      "type": {
+        "Base": "String"
+      },
+      "arity": "required",
+      "isUnique": true
+    },
+    {
+      "stepType": "CreateField",
+      "model": "ClassificationJob",
+      "name": "signedUrl",
+      "type": {
+        "Base": "String"
+      },
+      "arity": "required",
+      "isUnique": true
+    },
+    {
+      "stepType": "CreateField",
+      "model": "ClassificationJob",
+      "name": "zipUploaded",
+      "type": {
+        "Base": "Boolean"
+      },
+      "arity": "required",
+      "isUnique": false,
+      "default": {
+        "Boolean": false
+      }
+    },
+    {
+      "stepType": "CreateField",
+      "model": "ClassificationJob",
+      "name": "results",
+      "type": {
+        "Relation": {
+          "to": "ClassificationResult",
+          "to_fields": [],
+          "name": "ClassificationJobToClassificationResult",
+          "on_delete": "None"
+        }
+      },
+      "arity": "list",
+      "isUnique": false
+    },
+    {
+      "stepType": "CreateField",
+      "model": "Algorithm",
+      "name": "id",
+      "type": {
+        "Base": "Int"
+      },
+      "arity": "required",
+      "isUnique": false,
+      "id": {
+        "strategy": "Auto",
+        "sequence": null
+      }
+    },
+    {
+      "stepType": "CreateField",
+      "model": "Algorithm",
+      "name": "name",
+      "type": {
+        "Base": "String"
+      },
+      "arity": "required",
+      "isUnique": false
+    },
+    {
+      "stepType": "CreateField",
+      "model": "Algorithm",
+      "name": "link",
+      "type": {
+        "Base": "String"
+      },
+      "arity": "required",
+      "isUnique": false
+    },
+    {
+      "stepType": "CreateField",
+      "model": "Algorithm",
+      "name": "classificationResults",
+      "type": {
+        "Relation": {
+          "to": "ClassificationResult",
+          "to_fields": [],
+          "name": "AlgorithmToClassificationResult",
+          "on_delete": "None"
+        }
+      },
+      "arity": "list",
+      "isUnique": false
+    },
+    {
+      "stepType": "CreateField",
+      "model": "ClassificationResult",
+      "name": "id",
+      "type": {
+        "Base": "Int"
+      },
+      "arity": "required",
+      "isUnique": false,
+      "id": {
+        "strategy": "Auto",
+        "sequence": null
+      }
+    },
+    {
+      "stepType": "CreateField",
+      "model": "ClassificationResult",
+      "name": "algorithm",
+      "type": {
+        "Relation": {
+          "to": "Algorithm",
+          "to_fields": [
+            "id"
+          ],
+          "name": "AlgorithmToClassificationResult",
+          "on_delete": "None"
+        }
+      },
+      "arity": "required",
+      "isUnique": false
+    },
+    {
+      "stepType": "CreateField",
+      "model": "ClassificationResult",
+      "name": "accuracy",
+      "type": {
+        "Base": "Float"
+      },
+      "arity": "required",
+      "isUnique": false
+    },
+    {
+      "stepType": "CreateField",
+      "model": "ClassificationResult",
+      "name": "inferenceTime",
+      "type": {
+        "Base": "Float"
+      },
+      "arity": "required",
+      "isUnique": false
+    },
+    {
+      "stepType": "CreateField",
+      "model": "ClassificationResult",
+      "name": "trainingTime",
+      "type": {
+        "Base": "Float"
+      },
+      "arity": "required",
+      "isUnique": false
+    },
+    {
+      "stepType": "CreateField",
+      "model": "ClassificationResult",
+      "name": "classificationJob",
+      "type": {
+        "Relation": {
+          "to": "ClassificationJob",
+          "to_fields": [
+            "id"
+          ],
+          "name": "ClassificationJobToClassificationResult",
+          "on_delete": "None"
+        }
+      },
+      "arity": "optional",
+      "isUnique": false
+    }
+  ]
+}
