@@ -4,6 +4,7 @@ import dotenv from 'dotenv'
 import crypto from 'crypto'
 
 import { Photon } from '@generated/photon'
+import { callWorker } from './worker/callWorker'
 
 dotenv.config()
 
@@ -61,12 +62,16 @@ const resolvers = {
       }
     },
     uploadDone: async (id: number) => {
-      const data = await photon.classificationJobs.update({
+      const job = await photon.classificationJobs.update({
         where: {
           id,
         },
-        data: {},
+        data: {
+          zipUploaded: true,
+        },
       })
+      callWorker(job.id)
+      return true
     },
   },
 }
